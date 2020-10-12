@@ -1,13 +1,14 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-30 14:59:25
- * @LastEditTime: 2020-09-30 15:49:13
+ * @LastEditTime: 2020-10-12 14:10:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue3.x_repo\vuedemo1\src\App.vue
 -->
 <template>
   <div>
+    <ShowImg/>
     <img alt="Vue logo" src="./assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
     <h1 v-on:click="text">4444</h1>
@@ -17,7 +18,7 @@
 <script lang="ts">
 import { defineComponent} from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
-
+import ShowImg from './components/ShowImg.vue'
 export default defineComponent({
   name: "App",
   methods: {
@@ -41,6 +42,7 @@ export default defineComponent({
   },
   components: {
     HelloWorld,
+    ShowImg
   },
 });
 </script>

@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-30 15:00:06
- * @LastEditTime: 2020-10-09 10:56:04
+ * @LastEditTime: 2020-10-12 14:34:43
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue3.x_repo\vuedemo1\README.md
@@ -33,6 +33,7 @@ export default defineComponent({
 });
 ```
 <p>在页面中使用</p>
+
 ```
 <button
       v-for="(item, index) in girls"
@@ -52,10 +53,13 @@ export default defineComponent({
         <li>return出去的数据和方法，在模板中才可以使用，这样可以精准的控制暴漏的变量和方法。</li>
     </ol>
 </p>
+
 ### reactive 对代码进行优化
+
 <p>
 使用reactive对返回的值进行包装之后，只需要返回一个data即可，也不需要使用.value来获取变量的值了。
 </p>
+
 ```
 import { ref, reactive } from "vue";
 export default {
@@ -88,8 +92,11 @@ export default {
 </template>
 ```
 
+
 ### 使用toRefs继续优化代码
+
 <p>之前代码中还需要使用data. 来获取变量的值，如果不想通过.value获取，则要使用toRefs来</p>
+
 ```
 <script lang="ts">
 
@@ -142,8 +149,10 @@ const data: DataProps = reactive({
         <li>onErrorCaptured(): 当捕获一个来自子孙组件的异常时激活钩子函数。</li>
     </ul>
     <p>
-        生命周期要卸载setup方法中
+        生命周期要写在setup方法中
     </p>
+    
+    
 ```
 <script lang="ts">
 
@@ -185,11 +194,15 @@ export default app;
 </script>
 ```
 
+
 ### onRenderTracked和onRenderTriggered
+
 <p>这两个方法都是用于对组件进行状态跟踪，onRenderTracked是跟踪全部状态，onRenderTriggered只跟踪变化的值</p>   
 
 ### watch
+
 <p>watch只能监听ref的值，不能直接监听reactive包装得值,如果要监听reactive里的值，需要在watch里通过函数返回一个值。</p>   
+
 ```
 <script lang="ts">
 import { defineComponent, reactive, toRefs, watch, ref } from "vue";
@@ -231,6 +244,7 @@ export default defineComponent({
 ### Vue 3.x 模块
 
 <p>可以在src目录下，新建一个文件夹hooks(所有抽离出来的功能模块都可以放到这个文件夹里)，然后再新建一个文件useNowTime.ts,这里使用use开头是一个使用习惯，代表是一个抽离出来的模块。</p>
+
 
 ```
 //定义的模块
