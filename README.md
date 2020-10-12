@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-30 15:00:06
- * @LastEditTime: 2020-10-12 14:34:43
+ * @LastEditTime: 2020-10-12 14:38:48
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue3.x_repo\vuedemo1\README.md
@@ -302,3 +302,75 @@ export default defineComponent({
 <div>{{nowTime}}</div>
 </template>
 ```
+
+### 使用axios进行数据请求
+
+<p>在hooks文件夹下新建ShowImg.ts文件</p>
+
+```
+<!--
+ * @Author: your name
+ * @Date: 2020-10-12 13:47:08
+ * @LastEditTime: 2020-10-12 14:33:10
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \vue3.x_repo\vuedemo1\src\components\ShowImg.vue
+-->
+<template>
+  <div>
+    显示图片
+    <button @Click="getImg">1122</button>
+    <img width="200" v-if="loaded" :src="result.message" />
+  </div>
+</template>
+<script lang="ts">
+import { defineComponent} from "vue";
+import useUrlAxios from "../hooks/showImg";
+export default defineComponent({
+  name: "ShowImg",
+  setup() {
+    const { result, loading, loaded } = useUrlAxios(
+      "https://dog.ceo/api/breeds/image/random"
+    );
+
+    return { result, loading, loaded };
+  },
+});
+</script>
+```
+<p>在模块中引入该文件</p>
+
+```
+<!--
+ * @Author: your name
+ * @Date: 2020-10-12 13:47:08
+ * @LastEditTime: 2020-10-12 14:33:10
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \vue3.x_repo\vuedemo1\src\components\ShowImg.vue
+-->
+<template>
+  <div>
+    显示图片
+    <button @Click="getImg">1122</button>
+    <img width="200" v-if="loaded" :src="result.message" />
+  </div>
+</template>
+<script lang="ts">
+import { defineComponent} from "vue";
+import useUrlAxios from "../hooks/showImg";
+export default defineComponent({
+  name: "ShowImg",
+  setup() {
+    const { result, loading, loaded } = useUrlAxios(
+      "https://dog.ceo/api/breeds/image/random"
+    );
+
+    return { result, loading, loaded };
+  },
+});
+</script>
+```
+
+
+
